@@ -33,13 +33,13 @@ button:disabled {
 }
 
 /* primary action -- the shutter release */
-.button-container button:first-child {
+.button--primary {
   background: var(--accent);
   color: var(--accent-ink);
   border-color: var(--accent);
 }
 
-.button-container button:first-child:hover:not(:disabled) {
+.button--primary:hover:not(:disabled) {
   filter: brightness(1.08);
 }
 

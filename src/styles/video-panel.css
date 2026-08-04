@@ -99,7 +99,8 @@
 
 .video-info {
   display: flex;
-  gap: var(--space-4);
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
   margin: var(--space-3) 0;
   font-family: var(--font-mono);
   font-size: 13px;
@@ -107,9 +108,26 @@
   letter-spacing: 0.04em;
 }
 
+.video-info p {
+  margin: 0;
+}
+
 .video-info span {
   color: var(--accent);
   margin-right: var(--space-1);
+}
+
+.nudge-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.nudge-row button:first-child,
+.nudge-row button:last-child {
+  font-size: 12px;
+  padding: 10px 12px;
 }
 
 .button-container {
@@ -117,4 +135,85 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   justify-content: center;
+}
+
+.shortcut-hint {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  opacity: 0.55;
+  text-align: center;
+}
+
+.shortcut-hint kbd {
+  font-family: var(--font-mono);
+  padding: 1px 5px;
+  border: 1px solid var(--panel-line);
+  border-radius: 3px;
+}
+
+/* ---------- storyboard batch capture ---------- */
+
+.storyboard-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--panel-line);
+  width: 100%;
+  justify-content: center;
+}
+
+.storyboard-row__field {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.storyboard-row__field input {
+  width: 3.5em;
+  padding: 6px 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+}
+
+.storyboard-row__field input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  .button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .button-container button {
+    margin: 0;
+  }
+
+  .nudge-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nudge-row button:not(:first-child):not(:last-child) {
+    flex: 1;
+  }
 }

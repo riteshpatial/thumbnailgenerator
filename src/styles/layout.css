@@ -127,3 +127,21 @@ body {
     animation: none;
   }
 }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  .thumbnail-generator {
+    padding: var(--space-3) var(--space-2) var(--space-5);
+  }
+
+  .status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .tally-switch {
+    align-self: flex-start;
+  }
+}

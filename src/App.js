@@ -21,14 +21,18 @@ export default function App() {
     canvasRef,
     videoFile,
     videoResolution,
+    videoDuration,
     fileSize,
     isLoading,
+    isCapturingStoryboard,
     thumbnails,
     currentThumbnailIndex,
     canUndo,
     canRedo,
     loadVideo,
     generateThumbnail,
+    generateStoryboard,
+    nudge,
     removeThumbnail,
     selectThumbnail,
     undo,
@@ -54,12 +58,16 @@ export default function App() {
           canvasRef={canvasRef}
           videoFile={videoFile}
           videoResolution={videoResolution}
+          videoDuration={videoDuration}
           fileSize={fileSize}
           canUndo={canUndo}
           canRedo={canRedo}
           hasSelection={currentThumbnailIndex >= 0}
           hasThumbnails={thumbnails.length > 0}
+          isCapturingStoryboard={isCapturingStoryboard}
           onGenerate={generateThumbnail}
+          onGenerateStoryboard={generateStoryboard}
+          onNudge={nudge}
           onUndo={undo}
           onRedo={redo}
           onRemove={removeThumbnail}

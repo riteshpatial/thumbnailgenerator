@@ -82,3 +82,14 @@
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--panel);
 }
+
+@media (max-width: 480px) {
+  .contact-sheet__body {
+    padding: var(--space-3);
+  }
+
+  .thumbnail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--space-2);
+  }
+}
