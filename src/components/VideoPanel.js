@@ -19,6 +19,7 @@ export default function VideoPanel({
   onUndo,
   onRedo,
   onRemove,
+  onClearAll,
   onDownload,
   onDownloadAll,
 }) {
@@ -73,6 +74,7 @@ export default function VideoPanel({
         <button onClick={onRemove} disabled={!hasSelection} type="button" title="Remove (Backspace)">Remove</button>
         <button onClick={onDownload} disabled={!hasSelection} type="button">Download</button>
         <button onClick={onDownloadAll} disabled={!hasThumbnails} type="button">Download All (.zip)</button>
+        <button onClick={onClearAll} disabled={!hasThumbnails} type="button">Clear All</button>
       </div>
 
       <p className="shortcut-hint">

@@ -34,6 +34,7 @@ export default function App() {
     generateStoryboard,
     nudge,
     removeThumbnail,
+    clearAll,
     selectThumbnail,
     undo,
     redo,
@@ -71,6 +72,7 @@ export default function App() {
           onUndo={undo}
           onRedo={redo}
           onRemove={removeThumbnail}
+          onClearAll={clearAll}
           onDownload={downloadCurrent}
           onDownloadAll={downloadAll}
         />

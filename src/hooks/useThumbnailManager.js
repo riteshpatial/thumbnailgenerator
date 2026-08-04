@@ -30,38 +30,11 @@ export function useThumbnailManager() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const objectUrlRef = useRef(null);
-  const hasWarnedStorageRef = useRef(false);
 
-  // Restore any previously saved thumbnails on first load.
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("thumbnails");
-      if (saved) {
-        const loaded = JSON.parse(saved);
-        setThumbnails(loaded);
-        setHistoryState({
-          entries: [{ thumbnails: loaded, currentThumbnailIndex: -1 }],
-          index: 0,
-        });
-      }
-    } catch {
-      // Corrupted or unreadable data — start fresh instead of crashing.
-    }
-  }, []);
-
-  // Persist thumbnails whenever they change. Base64 PNGs can exceed the
-  // localStorage quota, so failures are caught instead of thrown.
-  useEffect(() => {
-    try {
-      localStorage.setItem("thumbnails", JSON.stringify(thumbnails));
-      hasWarnedStorageRef.current = false;
-    } catch {
-      if (!hasWarnedStorageRef.current) {
-        hasWarnedStorageRef.current = true;
-        toast.error("Couldn't save thumbnails locally — storage limit reached");
-      }
-    }
-  }, [thumbnails]);
+  // Thumbnails are intentionally in-memory only, scoped to whatever video is
+  // currently loaded (loadVideo() already clears them for a new video). A
+  // fresh tab or reload always starts empty instead of surfacing orphaned
+  // frames from an unrelated earlier session with no video to attach them to.
 
   // Revoke the video object URL on unmount to avoid leaking memory.
   useEffect(() => {
@@ -250,6 +223,15 @@ export function useThumbnailManager() {
 
   const selectThumbnail = (index) => setCurrentThumbnailIndex(index);
 
+  const clearAll = () => {
+    if (thumbnails.length === 0) {
+      return;
+    }
+    setThumbnails([]);
+    setCurrentThumbnailIndex(-1);
+    pushHistory({ thumbnails: [], currentThumbnailIndex: -1 });
+  };
+
   const undo = () => {
     if (historyState.index > 0) {
       const newIndex = historyState.index - 1;
@@ -348,6 +330,7 @@ export function useThumbnailManager() {
     generateStoryboard,
     nudge,
     removeThumbnail,
+    clearAll,
     selectThumbnail,
     undo,
     redo,
