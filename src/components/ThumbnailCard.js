@@ -1,10 +1,11 @@
 import React from "react";
+import { formatTimecode } from "../utils/formatTimecode";
 
 export default function ThumbnailCard({ thumbnail, isSelected, onSelect }) {
   return (
     <div className={`thumbnail-card ${isSelected ? "selected" : ""}`} onClick={onSelect}>
-      <img src={thumbnail.data} alt={`Thumbnail at ${thumbnail.time}s`} style={{ maxWidth: "100%" }} />
-      <p>Timestamp: {thumbnail.time} seconds</p>
+      <img src={thumbnail.data} alt={`Frame at ${thumbnail.time} seconds`} />
+      <span className="thumbnail-card__timecode">{formatTimecode(thumbnail.time)}</span>
     </div>
   );
 }

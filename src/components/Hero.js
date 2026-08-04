@@ -2,9 +2,10 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="animated-description">
-      <h2>Video Thumbnail Generator</h2>
-      <p>Create stunning thumbnails from your videos with ease!</p>
+    <div className="status-bar__brand">
+      <span className="eyebrow">Local &middot; No Upload</span>
+      <h1 className="status-bar__title">Video Thumbnail Generator</h1>
+      <p className="status-bar__tagline">Scrub the timeline, capture the frame, download the shot.</p>
     </div>
   );
 }

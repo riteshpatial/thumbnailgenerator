@@ -1,31 +1,48 @@
-input[type="file"] {
-  margin: 20px 0;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  border: 2px dashed #ffffff;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-input[type="file"]:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #ff6b6b;
-}
-
 .drop-zone {
-  margin: 20px 0;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  border: 2px dashed #ffffff;
-  color: #ffffff;
+  width: 100%;
+  max-width: 1200px;
+  padding: var(--space-5) var(--space-4);
+  margin-bottom: var(--space-4);
+  background: var(--panel);
+  border: 1px dashed var(--panel-line);
+  border-radius: var(--radius);
   text-align: center;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .drop-zone.dragover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #ff6b6b;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+}
+
+.drop-zone p {
+  margin: var(--space-3) 0 0;
+  font-size: 14px;
+  color: var(--ink);
+  opacity: 0.65;
+}
+
+.drop-zone input[type="file"] {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.drop-zone input[type="file"]::file-selector-button {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  margin-right: var(--space-3);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.drop-zone input[type="file"]::file-selector-button:hover {
+  border-color: var(--accent);
 }

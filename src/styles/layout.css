@@ -1,101 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #000000;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background: url("../assets/light-mode-bg.jpg") center/cover no-repeat;
-  animation: backgroundPulse 8s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundPulse {
-  0% { opacity: 0.8; }
-  100% { opacity: 1; }
 }
 
 .thumbnail-generator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   min-height: 100vh;
-  padding: 20px;
   width: 100%;
-  box-sizing: border-box;
-  transition: background 0.5s ease;
+  padding: var(--space-4) var(--space-3) var(--space-6);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.thumbnail-generator.dark-mode {
-  background: url("../assets/dark-mode-bg.jpg") center/cover no-repeat fixed;
-  color: #ffffff;
-  min-height: 100vh;
-  width: 100vw;
-  position: relative;
+/* ---------- status bar ---------- */
+
+.status-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--panel-line);
+  margin-bottom: var(--space-5);
 }
 
-.animated-description {
-  text-align: center;
-  padding: 30px;
-  margin: 20px 0;
-  font-size: 28px;
-  color: #ffffff;
-  background: rgba(86, 78, 78, 0.6);
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  animation: fadeInUp 1.5s ease-out;
-  transition: all 0.5s ease;
+.status-bar__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
-.animated-description:hover {
-  background: rgba(228, 35, 35, 0.3);
-  box-shadow: 0 15px 40px rgba(31, 38, 135, 0.5);
-  transform: translateY(-5px);
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+.status-bar__title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
+
+.status-bar__tagline {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--ink);
+  opacity: 0.7;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ---------- shared section chrome ---------- */
 
 .separator {
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 1200px;
   border: 0;
-  border-top: 2px solid rgba(255, 255, 255, 0.3);
-  margin: 40px auto;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 5px 15px rgba(31, 38, 135, 0.3);
-  border-radius: 10px;
+  border-top: 1px solid var(--panel-line);
+  margin: var(--space-5) 0;
 }
+
+.frame-count {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.65;
+  margin: 0;
+}
+
+/* ---------- loading: film-leader countdown wipe ---------- */
 
 .spinner {
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #ff6b6b;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: var(--space-4) auto;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
+  background: conic-gradient(var(--accent) 0deg 180deg, var(--panel-line) 180deg 360deg);
+  animation: countdownWipe 1s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.spinner::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+@keyframes countdownWipe {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
 }

@@ -24,7 +24,7 @@ export default function DropZone({ onFileSelected }) {
       onDrop={handleDrop}
     >
       <input type="file" accept="video/*" onChange={(e) => onFileSelected(e.target.files[0])} />
-      <p>Drag & Drop your video here or click to upload</p>
+      <p>Drop a video file here, or click to browse.</p>
     </div>
   );
 }

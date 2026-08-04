@@ -4,35 +4,117 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin: 20px 0;
+  margin-bottom: var(--space-5);
+}
+
+/* ---------- viewfinder ---------- */
+
+.viewer {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  padding: var(--space-3);
+}
+
+.viewer::before,
+.viewer::after,
+.viewer__corner--tr,
+.viewer__corner--bl {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent);
+}
+
+.viewer::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.viewer::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.viewer__corner--tr {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.viewer__corner--bl {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.viewer__stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--filmstock);
 }
 
 .video-element {
+  display: block;
   width: 100%;
-  max-width: 800px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  max-height: 60vh;
 }
 
-.video-element:hover {
-  transform: scale(1.01);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+.capture-canvas {
+  display: none;
 }
+
+.viewer__flash {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .viewer__flash {
+    animation: shutterFlash 380ms ease-out forwards;
+  }
+}
+
+@keyframes shutterFlash {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- readout + toolbar ---------- */
 
 .video-info {
-  margin: 15px 0;
-  font-size: 16px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: var(--space-4);
+  margin: var(--space-3) 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.video-info span {
+  color: var(--accent);
+  margin-right: var(--space-1);
 }
 
 .button-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: var(--space-2);
   justify-content: center;
-  margin: 20px 0;
 }

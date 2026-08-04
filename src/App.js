@@ -39,9 +39,11 @@ export default function App() {
 
   return (
     <div className={`thumbnail-generator ${isDarkMode ? "dark-mode" : ""}`}>
-      <ToastContainer position="bottom-right" />
-      <DarkModeToggle isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
-      <Hero />
+      <ToastContainer position="bottom-right" theme={isDarkMode ? "dark" : "light"} />
+      <header className="status-bar">
+        <Hero />
+        <DarkModeToggle isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
+      </header>
 
       <DropZone onFileSelected={loadVideo} />
       {isLoading && <Spinner />}
@@ -72,7 +74,7 @@ export default function App() {
         onSelect={selectThumbnail}
       />
 
-      <p>Total Thumbnails: {thumbnails.length}</p>
+      <p className="frame-count">Frames captured: {thumbnails.length}</p>
       <hr className="separator" />
       <AboutUs />
     </div>

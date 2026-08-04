@@ -1,0 +1,44 @@
+/*
+  Two grounded modes, not an inversion of one palette:
+  - Light = a film editor's LIGHT TABLE (bright diffuser, grease-pencil orange marks).
+  - Dark  = the EDITING BAY at night (console glow, amber tally-light).
+  --filmstock stays constant in both -- real film stock is dark regardless
+  of the room around it.
+*/
+
+:root {
+  --paper: #edeff0;
+  --ink: #17181a;
+  --panel: #ffffff;
+  --panel-line: rgba(23, 24, 26, 0.14);
+  --accent: #d9531e;
+  --danger: #c23b3b;
+  --success: #2f8f72;
+  --shadow: rgba(23, 24, 26, 0.1);
+
+  --filmstock: #241e18;
+  --accent-ink: var(--filmstock);
+
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Roboto Mono", "Liberation Mono", monospace;
+  --font-sans: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+
+  --radius: 4px;
+}
+
+.dark-mode {
+  --paper: #14161a;
+  --ink: #ecede7;
+  --panel: #1d2024;
+  --panel-line: rgba(236, 237, 231, 0.14);
+  --accent: #e2a33d;
+  --danger: #e2685b;
+  --success: #4fbe9a;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
