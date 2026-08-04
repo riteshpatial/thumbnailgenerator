@@ -16,12 +16,12 @@ button {
 
 button:hover:not(:disabled) {
   border-color: var(--accent);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px var(--shadow);
+  transform: perspective(300px) translateY(-2px) rotateX(6deg);
+  box-shadow: 0 6px 14px var(--shadow);
 }
 
 button:active:not(:disabled) {
-  transform: translateY(1px);
+  transform: perspective(300px) translateY(1px) rotateX(-4deg);
   box-shadow: none;
 }
 

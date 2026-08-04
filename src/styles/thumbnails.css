@@ -43,12 +43,13 @@
   border-radius: var(--radius);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease-out;
+  will-change: transform;
 }
 
 .thumbnail-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 6px 16px var(--shadow);
+  box-shadow: 0 10px 24px var(--shadow);
 }
 
 .thumbnail-card img {

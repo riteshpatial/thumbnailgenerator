@@ -6,6 +6,8 @@ import "./styles/App.css";
 import { useDarkMode } from "./hooks/useDarkMode";
 import { useThumbnailManager } from "./hooks/useThumbnailManager";
 
+import Background from "./components/Background";
+import IntroReveal from "./components/IntroReveal";
 import DarkModeToggle from "./components/DarkModeToggle";
 import Hero from "./components/Hero";
 import DropZone from "./components/DropZone";
@@ -44,6 +46,8 @@ export default function App() {
 
   return (
     <div className={`thumbnail-generator ${isDarkMode ? "dark-mode" : ""}`}>
+      <Background isDarkMode={isDarkMode} />
+      <IntroReveal />
       <ToastContainer position="bottom-right" theme={isDarkMode ? "dark" : "light"} />
       <header className="status-bar panel-in">
         <Hero />
