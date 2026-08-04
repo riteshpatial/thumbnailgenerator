@@ -159,6 +159,8 @@ body {
 .intro-reveal.is-wiping {
   opacity: 0;
   transform: scale(1.06);
+  /* Belt-and-suspenders: never let a fading/invisible overlay swallow clicks. */
+  pointer-events: none;
 }
 
 /* ---------- shared entrance animation ---------- */
