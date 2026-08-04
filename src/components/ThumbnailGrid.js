@@ -7,7 +7,7 @@ export default function ThumbnailGrid({ thumbnails, currentThumbnailIndex, onSel
   }
 
   return (
-    <div className="contact-sheet">
+    <div className="contact-sheet panel-in">
       <div className="contact-sheet__sprocket" aria-hidden="true" />
       <div className="contact-sheet__body">
         <h2>Contact Sheet</h2>
@@ -15,6 +15,7 @@ export default function ThumbnailGrid({ thumbnails, currentThumbnailIndex, onSel
           {thumbnails.map((thumbnail, index) => (
             <ThumbnailCard
               key={index}
+              index={index}
               thumbnail={thumbnail}
               isSelected={index === currentThumbnailIndex}
               onSelect={() => onSelect(index)}

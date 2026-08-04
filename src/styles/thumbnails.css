@@ -43,17 +43,23 @@
   border-radius: var(--radius);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .thumbnail-card:hover {
   border-color: var(--accent);
+  box-shadow: 0 6px 16px var(--shadow);
 }
 
 .thumbnail-card img {
   display: block;
   width: 100%;
   border-radius: 2px;
+  transition: transform 0.25s ease;
+}
+
+.thumbnail-card:hover img {
+  transform: scale(1.04);
 }
 
 .thumbnail-card__timecode {

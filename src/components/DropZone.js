@@ -18,7 +18,7 @@ export default function DropZone({ onFileSelected }) {
 
   return (
     <div
-      className={`drop-zone ${isDragOver ? "dragover" : ""}`}
+      className={`drop-zone panel-in ${isDragOver ? "dragover" : ""}`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}

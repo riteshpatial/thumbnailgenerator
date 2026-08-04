@@ -37,7 +37,7 @@ export default function VideoPanel({
 
   return (
     <div className="video-container">
-      <div className="viewer">
+      <div className="viewer panel-in">
         <span className="viewer__corner--tr" aria-hidden="true" />
         <span className="viewer__corner--bl" aria-hidden="true" />
         <div className="viewer__stage">

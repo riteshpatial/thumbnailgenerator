@@ -12,7 +12,7 @@ import DropZone from "./components/DropZone";
 import Spinner from "./components/Spinner";
 import VideoPanel from "./components/VideoPanel";
 import ThumbnailGrid from "./components/ThumbnailGrid";
-import AboutUs from "./components/AboutUs";
+import Footer from "./components/Footer";
 
 export default function App() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -44,7 +44,7 @@ export default function App() {
   return (
     <div className={`thumbnail-generator ${isDarkMode ? "dark-mode" : ""}`}>
       <ToastContainer position="bottom-right" theme={isDarkMode ? "dark" : "light"} />
-      <header className="status-bar">
+      <header className="status-bar panel-in">
         <Hero />
         <DarkModeToggle isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
       </header>
@@ -84,7 +84,7 @@ export default function App() {
 
       <p className="frame-count">Frames captured: {thumbnails.length}</p>
       <hr className="separator" />
-      <AboutUs />
+      <Footer />
     </div>
   );
 }

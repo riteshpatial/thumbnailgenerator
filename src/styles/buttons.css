@@ -11,15 +11,18 @@ button {
   border: 1px solid var(--panel-line);
   border-radius: var(--radius);
   cursor: pointer;
-  transition: border-color 0.15s ease, transform 0.1s ease, background 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover:not(:disabled) {
   border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px var(--shadow);
 }
 
 button:active:not(:disabled) {
   transform: translateY(1px);
+  box-shadow: none;
 }
 
 button:focus-visible {
@@ -54,6 +57,12 @@ button:disabled {
   border: 1px solid var(--panel-line);
   border-radius: 999px;
   flex-shrink: 0;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tally-switch:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .tally-switch__lamp {
@@ -62,4 +71,9 @@ button:disabled {
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 6px 1px var(--accent);
+  transition: box-shadow 0.2s ease;
+}
+
+.tally-switch:hover .tally-switch__lamp {
+  box-shadow: 0 0 9px 2px var(--accent);
 }

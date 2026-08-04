@@ -25,6 +25,15 @@
   width: 18px;
   height: 18px;
   border: 2px solid var(--accent);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.viewer:hover::before,
+.viewer:hover::after,
+.viewer:hover .viewer__corner--tr,
+.viewer:hover .viewer__corner--bl {
+  width: 24px;
+  height: 24px;
 }
 
 .viewer::before {
