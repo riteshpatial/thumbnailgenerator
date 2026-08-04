@@ -1,0 +1,69 @@
+.canvas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 40px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(31, 38, 135, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin: 20px 0;
+  transition: all 0.5s ease;
+  animation: slideIn 0.5s ease-out;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.canvas:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(31, 38, 135, 0.6);
+}
+
+.canvas img {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.canvas img:hover {
+  transform: scale(1.03);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+.thumbnail-card {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.thumbnail-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.thumbnail-card.selected {
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+}
+
+.thumbnail-card:hover {
+  transform: scale(1.05);
+}

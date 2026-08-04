@@ -1,0 +1,31 @@
+input[type="file"] {
+  margin: 20px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 2px dashed #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ff6b6b;
+}
+
+.drop-zone {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 2px dashed #ffffff;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.drop-zone.dragover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ff6b6b;
+}
